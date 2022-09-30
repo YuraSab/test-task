@@ -7,7 +7,7 @@ import {getProductById} from "../../redux/action-creators/Products";
 const ChosenItem = () => {
 
     const {id} = useParams();
-    console.log(id);
+    // console.log(id);
     const {product} = useSelector(({product: {product}}) => ({product}));
     const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ const ChosenItem = () => {
         dispatch(getProductById(id));
     }, []);
 
-    console.log(product);
+    // console.log(product);
 
     return (
 
