@@ -10,14 +10,12 @@ const EditItem = () => {
 
 
     const {id} = useParams();
-    console.log(id);
+    // console.log(id);
 
     const dispatch = useDispatch();
     const {product} = useSelector(({product: {product}}) => ({product}));
 
     console.log(product);
-
-
 
 
     useEffect(() => {
@@ -36,11 +34,11 @@ const EditItem = () => {
     const countRef = createRef();
     // console.log(count);
 
-    const[width, setWidth] = useState(product.size?.width);
+    const [width, setWidth] = useState(product.size?.width);
     const widthRef = createRef();
     // console.log(width);
 
-    const[height, setHeight] = useState(product.size?.height);
+    const [height, setHeight] = useState(product.size?.height);
     const heightRef = createRef();
     // console.log(height);
 
@@ -49,40 +47,59 @@ const EditItem = () => {
     // console.log(weight);
 
 
-    // const item = {
-    //     id: product.id,
-    //     imageUrl: imgUrl,
-    //     name: name,
-    //     count: count,
-    //     size: {
-    //         width: width,
-    //         height: height
-    //     },
-    //     weight: weight
-    // };
 
-    const [item, setItem] = useState({});
+    // const [item, setItem] = useState({
+    //     // "id": product.id,
+    //     // "imageUrl": `${product.imageUrl}`,
+    //     // "name": `${product.name}`,
+    //     // "count": product.count,
+    //     // "size": {
+    //     //     "width": product.width,
+    //     //     "height": product.height
+    //     // },
+    //     // "weight": `${product.weight}`,
+    // });
 
     const onChangeItem = () => {
-        setItem({
-                id: product.id,
-                imageUrl: imgUrl | product.imageUrl,
-                name: name |  product.name,
-                count: count | product.count,
-                size: {
-                    width: width | product.width,
-                    height: height | product.height
-                },
-                weight: weight | product.weight
-        });
-        console.log('item', item);
+        // setItem({
+        //     "id": product.id,
+        //     "imageUrl": `${imgUrl}` | `${product.imageUrl}`,
+        //     "name": `${name}` | `${product.name}`,
+        //     "count": count | product.count,
+        //     "size": {
+        //         "width": width | product.width,
+        //         "height": height | product.height
+        //     },
+        //     "weight": weight | product.weight,
+        //
+        //     // id: product.id,
+        //     // imageUrl: imgUrl | product.imageUrl,
+        //     // name: name |  product.name,
+        //     // count: count | product.count,
+        //     // size: {
+        //     //     width: width | product.width,
+        //     //     height: height | product.height
+        //     // },
+        //     // weight: weight | product.weight
+        // });
+        // console.log('item', item);
+        const item = {
+            "id": product.id,
+            "imageUrl": `${imgUrl}`,
+            "name": `${name}`,
+            "count": `${count}`,
+            "size": {
+                "width": `${width}`,
+                "height": `${height}`
+            },
+            "weight": `${weight}`,
+        }
 
-        dispatch(editProduct({item}, id));
-
+        // dispatch(editProduct(item, id));
+        dispatch(editProduct(item));
     }
 
     const navigate = useNavigate();
-
 
 
     return (
@@ -109,7 +126,7 @@ const EditItem = () => {
                         <div>Count:
                             <input
                                 style={{marginLeft: 20}}
-                                type={'number'}
+                                // type={'number'}
                                 placeholder={product.count}
                                 ref={countRef}
                                 onChange={(event) => setCount(event.target.value)}
@@ -118,7 +135,7 @@ const EditItem = () => {
                         <div>Width:
                             <input
                                 style={{marginLeft: 20}}
-                                type={'number'}
+                                // type={'number'}
                                 placeholder={product.size.width}
                                 ref={widthRef}
                                 onChange={(event) => setWidth(event.target.value)}
@@ -127,7 +144,7 @@ const EditItem = () => {
                         <div>Height:
                             <input
                                 style={{marginLeft: 20}}
-                                type={'number'}
+                                // type={'number'}
                                 placeholder={product.size.height}
                                 ref={heightRef}
                                 onChange={(event) => setHeight(event.target.value)}
@@ -145,14 +162,14 @@ const EditItem = () => {
                         <div>
                             <button
                                 onClick={() => onChangeItem()}
-                                disabled={true}
-                                style={{marginTop:40 ,height: 30 ,width: 120, background: "lightblue"}}
+                                // disabled={true}
+                                style={{marginTop: 40, height: 30, width: 120, background: "lightblue"}}
                             >
                                 Send
                             </button>
                             <button
                                 onClick={() => navigate(-1)}
-                                style={{marginLeft: 40,marginTop:40 ,height: 30 ,width: 120, background: "lightblue"}}
+                                style={{marginLeft: 40, marginTop: 40, height: 30, width: 120, background: "lightblue"}}
                             >
                                 Cancel
                             </button>

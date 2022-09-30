@@ -80,14 +80,18 @@ export default (state = initialState, action) => {
         //     }
         // }
         case EDIT_PRODUCT: {
-            const {item, id} = action.payload;
-            const filtered = state.products.filter(el => el.id !== id);
-            console.log("filtered", filtered);
+            // const {item} = action.payload;
+            // const item = action.payload;
+            console.log(`object` ,action.payload);
+            const filtered = state.products.filter(el => el.id !== action.payload.id);
+            // const filtered = state.products.filter(el => el.id !== action.payload.id);
        //const filtered = state.products.filter(el => el.id !== action.payload.id);
-            const pushed = [filtered, ...item];
+       //      const pushed = [filtered, ...item];
+                filtered.push(action.payload);
+            console.log("filtered", filtered);
             return {
                 ...state,
-                products: pushed
+                products: filtered
             }
         }
 

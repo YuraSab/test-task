@@ -18,6 +18,8 @@ const ItemsList = () => {
         dispatch(getProducts())
     }, [])
 
+    console.log('products', products);
+
     return (
         <div className={styles.list}>
             {

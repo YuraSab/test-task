@@ -44,7 +44,8 @@ export const sortPriceLower = () => ({
     type: SORT_PRICE_LOWER,
 });
 
-export const editProduct = (item, id) => ({
+export const editProduct = (item) => ({
     type: EDIT_PRODUCT,
-    payload: {item, id}
+    // payload: {item, id}
+    payload: item
 })
