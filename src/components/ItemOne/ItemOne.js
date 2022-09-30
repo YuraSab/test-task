@@ -3,12 +3,13 @@ import styles from "./ItemOne.module.css";
 import deleteButton from "../../pictures/bin.png";
 import {useDispatch} from "react-redux";
 import {deleteProducts} from "../../redux/action-creators/Products";
+import {Link} from "react-router-dom";
 
 
 const ItemOne = ({item}) => {
 
     const [pressedDelete, setPressedDelete] = useState(false);
-    console.log(pressedDelete);
+    // console.log(pressedDelete);
     const dispatch = useDispatch();
 
     const onDeleteItemHandle = (item) => {
@@ -20,9 +21,11 @@ const ItemOne = ({item}) => {
             <div className={styles.title}>
                 {item.name}
             </div>
-            <div className={styles.image}>
-                <img src={`${item.imageUrl}`} alt={item.name} className={styles.itemImg}/>
-            </div>
+            <Link to={`${item.id}`}>
+                <div className={styles.image}>
+                    <img src={`${item.imageUrl}`} alt={item.name} className={styles.itemImg}/>
+                </div>
+            </Link>
             <div className={styles.price}>
                 <div>{item.count} грн</div>
                 <div>

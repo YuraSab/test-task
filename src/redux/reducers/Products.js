@@ -11,7 +11,7 @@ import {
 const initialState = {
     products: [],
     product: '',
-    deletedProducts: []
+    deletedProducts: [],
 }
 
 export default (state = initialState, action) => {
@@ -20,12 +20,6 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 products: action.payload
-            }
-        }
-        case GET_PRODUCT_BY_ID: {
-            return {
-                ...state,
-                product: action.payload
             }
         }
         case DELETE_PRODUCT: {
@@ -68,7 +62,15 @@ export default (state = initialState, action) => {
                 products: sorted
             }
         }
+        case GET_PRODUCT_BY_ID: {
+            // let find = state.products.find(el => el.id == action.payload);
 
+            return {
+                ...state,
+                product: action.payload
+                // product: find
+            }
+        }
 
 
         default: {

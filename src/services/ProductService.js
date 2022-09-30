@@ -19,7 +19,8 @@ class ProductService {
     }
 
     getProductById(id){
-        return this.db[id]
+        console.log(id);
+        return this.db[id-1]
     }
 }
 

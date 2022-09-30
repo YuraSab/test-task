@@ -1,0 +1,27 @@
+.main{
+    padding: 40px 75px;
+
+    /*width: 100%;*/
+
+    display: grid;
+    grid-template-areas:
+    "photo description";
+
+    grid-template-columns: 420px 1fr;
+    grid-template-rows: 1fr 200px;
+
+}
+
+
+.photo{
+    grid-area: photo;
+    width: 400px;
+}
+
+.description{
+    grid-area: description;
+}
+
+
+.image{
+}
