@@ -1,0 +1,95 @@
+.oneItem {
+    width: 400px;
+    height: 400px;
+    /*background: black;*/
+    color: black;
+    display: grid;
+    grid-template-areas:
+    "title title"
+    "image price"
+    "description description";
+    grid-template-columns: 300px 100px;
+    grid-template-rows: 50px 220px 50px;
+    /*gap: 40px;*/
+    border: 2px black solid;
+    padding: 8px;
+    border-radius: 7px;
+}
+
+.oneItem:hover {
+    background: grey;
+}
+
+.image {
+    grid-area: image;
+    height: 200px;
+
+}
+
+
+.description {
+    grid-area: description;
+    color: white;
+    font-size: 20px;
+
+}
+
+
+.title {
+    color: white;
+    font-size: 30px;
+    padding: 4px 0;
+    grid-area: title;
+}
+
+.price {
+    color: white;
+    font-size: 25px;
+    padding: 2px 4px;
+    grid-area: price;
+
+}
+
+.itemImg {
+    width: 300px;
+    /*padding: 10px 0;*/
+    border-radius: 4px;
+}
+
+.cartItem {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 20%;
+    border-radius: 4px;
+}
+
+
+.active {
+    /*background: green;*/
+}
+.active:hover {
+    background: darkred;
+}
+
+
+.deleteButtons{
+    background: white;
+    flood-color: #1E1E1E;
+    border-radius: 4px;
+    width: 70%;
+    margin-left: 15%;
+    font-weight: bold;
+    /*font-size: 15px;*/
+}
+
+.confirm{
+}
+.cancel{
+}
+.confirm:hover{
+    background: darkred;
+}
+.cancel:hover{
+    background: darkgreen;
+}
+
