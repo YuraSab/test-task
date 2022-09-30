@@ -1,8 +1,9 @@
 import React, {createRef, useEffect, useState} from 'react';
 import style from "./EditItem.module.css";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {editProduct, getProductById} from "../../redux/action-creators/Products";
+import {useNavigate} from "react-router";
 
 
 const EditItem = () => {
@@ -80,6 +81,10 @@ const EditItem = () => {
 
     }
 
+    const navigate = useNavigate();
+
+
+
     return (
         <div>
             {
@@ -144,6 +149,12 @@ const EditItem = () => {
                                 style={{marginTop:40 ,height: 30 ,width: 120, background: "lightblue"}}
                             >
                                 Send
+                            </button>
+                            <button
+                                onClick={() => navigate(-1)}
+                                style={{marginLeft: 40,marginTop:40 ,height: 30 ,width: 120, background: "lightblue"}}
+                            >
+                                Cancel
                             </button>
                         </div>
 
