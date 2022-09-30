@@ -2,7 +2,7 @@ import React, {createRef, useEffect, useState} from 'react';
 import style from "./EditItem.module.css";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getProductById} from "../../redux/action-creators/Products";
+import {editProduct, getProductById} from "../../redux/action-creators/Products";
 
 
 const EditItem = () => {
@@ -16,33 +16,69 @@ const EditItem = () => {
 
     console.log(product);
 
+
+
+
     useEffect(() => {
         dispatch(getProductById(id))
     }, []);
 
     const [name, setName] = useState(product.name);
     const nameRef = createRef();
-    console.log(name);
+    // console.log(name);
 
     const [imgUrl, setImgUrl] = useState(product.imageUrl);
     const imgRef = createRef();
-    console.log(imgUrl);
+    // console.log(imgUrl);
 
     const [count, setCount] = useState(product.count);
     const countRef = createRef();
-    console.log(count);
+    // console.log(count);
 
     const[width, setWidth] = useState(product.size?.width);
     const widthRef = createRef();
-    console.log(width);
+    // console.log(width);
 
     const[height, setHeight] = useState(product.size?.height);
     const heightRef = createRef();
-    console.log(height);
+    // console.log(height);
 
     const [weight, setWeight] = useState(product.weight);
     const weightRef = createRef();
-    console.log(weight);
+    // console.log(weight);
+
+
+    // const item = {
+    //     id: product.id,
+    //     imageUrl: imgUrl,
+    //     name: name,
+    //     count: count,
+    //     size: {
+    //         width: width,
+    //         height: height
+    //     },
+    //     weight: weight
+    // };
+
+    const [item, setItem] = useState({});
+
+    const onChangeItem = () => {
+        setItem({
+                id: product.id,
+                imageUrl: imgUrl | product.imageUrl,
+                name: name |  product.name,
+                count: count | product.count,
+                size: {
+                    width: width | product.width,
+                    height: height | product.height
+                },
+                weight: weight | product.weight
+        });
+        console.log('item', item);
+
+        dispatch(editProduct({item}, id));
+
+    }
 
     return (
         <div>
@@ -100,6 +136,17 @@ const EditItem = () => {
                                 onChange={(event) => setWeight(event.target.value)}
                             />
                         </div>
+
+                        <div>
+                            <button
+                                onClick={() => onChangeItem()}
+                                disabled={true}
+                                style={{marginTop:40 ,height: 30 ,width: 120, background: "lightblue"}}
+                            >
+                                Send
+                            </button>
+                        </div>
+
                     </div>
                 ) : (
                     <div></div>

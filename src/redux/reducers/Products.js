@@ -1,5 +1,5 @@
 import {
-    DELETE_PRODUCT,
+    DELETE_PRODUCT, EDIT_PRODUCT,
     GET_PRODUCT_BY_ID,
     GET_PRODUCTS,
     SORT_NAME_DEC,
@@ -71,7 +71,25 @@ export default (state = initialState, action) => {
                 // product: find
             }
         }
-
+        // case DELETE_PRODUCT: {
+        //     const filtered = state.products.filter(el => el.id !== action.payload.id);
+        //     return {
+        //         ...state,
+        //         products: filtered,
+        //         deletedProducts: action.payload
+        //     }
+        // }
+        case EDIT_PRODUCT: {
+            const {item, id} = action.payload;
+            const filtered = state.products.filter(el => el.id !== id);
+            console.log("filtered", filtered);
+       //const filtered = state.products.filter(el => el.id !== action.payload.id);
+            const pushed = [filtered, ...item];
+            return {
+                ...state,
+                products: pushed
+            }
+        }
 
         default: {
             return state

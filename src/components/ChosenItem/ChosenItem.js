@@ -28,8 +28,8 @@ const ChosenItem = () => {
                 <div style={{fontSize: 20}}>Ціна: <b>{product.count} грн</b></div>
                 <div style={{fontSize: 20}}>Об'єм: <b>{product.weight}</b></div>
             </div>
-            <Link to={`edit`}>
-                <div>Edit</div>
+            <Link to={`edit`} className={styles.editLink}>
+                    Edit
             </Link>
         </div>
 

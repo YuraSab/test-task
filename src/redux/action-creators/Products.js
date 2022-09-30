@@ -1,5 +1,5 @@
 import {
-    DELETE_PRODUCT,
+    DELETE_PRODUCT, EDIT_PRODUCT,
     GET_PRODUCT_BY_ID,
     GET_PRODUCTS,
     SORT_NAME_DEC,
@@ -43,3 +43,8 @@ export const sortPriceHigher = () => ({
 export const sortPriceLower = () => ({
     type: SORT_PRICE_LOWER,
 });
+
+export const editProduct = (item, id) => ({
+    type: EDIT_PRODUCT,
+    payload: {item, id}
+})
