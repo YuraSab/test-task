@@ -1,4 +1,12 @@
-import {DELETE_PRODUCT, GET_PRODUCT_BY_ID, GET_PRODUCTS} from "../action-types";
+import {
+    DELETE_PRODUCT,
+    GET_PRODUCT_BY_ID,
+    GET_PRODUCTS,
+    SORT_NAME_DEC,
+    SORT_NAME_INC,
+    SORT_PRICE_HIGHER,
+    SORT_PRICE_LOWER
+} from "../action-types";
 
 const initialState = {
     products: [],
@@ -28,9 +36,38 @@ export default (state = initialState, action) => {
                 deletedProducts: action.payload
             }
         }
-        // case SORT_NAME_DEC: {
-        //     const sorted = state.products.sort()
-        // }
+        case SORT_NAME_DEC: {
+            const sorted = state.products.sort((a, b) => a.name.localeCompare(b.name));
+            return {
+                ...state,
+                products: sorted
+            }
+        }
+        case SORT_NAME_INC: {
+            const sorted = state.products.sort((a, b) => b.name.localeCompare(a.name));
+            return {
+                ...state,
+                products: sorted
+            }
+        }
+        case SORT_PRICE_LOWER: {
+            const sorted = state.products.sort(function (a, b) {
+                return a.count - b.count
+            });
+            return {
+                ...state,
+                products: sorted
+            }
+        }
+        case SORT_PRICE_HIGHER: {
+            const sorted = state.products.sort(function (a, b) {
+                return b.count - a.count
+            });
+            return {
+                ...state,
+                products: sorted
+            }
+        }
 
 
 

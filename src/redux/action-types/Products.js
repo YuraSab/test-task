@@ -1,3 +1,7 @@
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
 export const DELETE_PRODUCT = "DELETE_PRODUCT";
+export const SORT_NAME_DEC = "SORT_NAME_DEC";
+export const SORT_NAME_INC = "SORT_NAME_INC";
+export const SORT_PRICE_LOWER = "SORT_PRICE_LOWER";
+export const SORT_PRICE_HIGHER = "SORT_PRICE_HIGHER";
