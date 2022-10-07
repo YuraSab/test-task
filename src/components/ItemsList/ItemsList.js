@@ -9,14 +9,14 @@ const ItemsList = () => {
 
     // const db = database;
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const {products} = useSelector(({products: {products}}) => ({products}));
 
     // console.log(db[1]);
 
-    useEffect(() => {
-        dispatch(getProducts())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(getProducts())
+    // }, []);
 
     console.log('products', products);
 
