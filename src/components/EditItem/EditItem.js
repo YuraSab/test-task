@@ -4,6 +4,7 @@ import {Link, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {editProduct, getProductById} from "../../redux/action-creators/Products";
 import {useNavigate} from "react-router";
+// import {useNavigate} from "react-router";
 
 
 const EditItem = () => {
@@ -13,93 +14,61 @@ const EditItem = () => {
     // console.log(id);
 
     const dispatch = useDispatch();
-    const {product} = useSelector(({product: {product}}) => ({product}));
+    const {product, products} = useSelector(({product: {product}, products: {products}}) => ({product, products}));
 
-    console.log(product);
+    // console.log(product);
 
 
     useEffect(() => {
         dispatch(getProductById(id))
     }, []);
 
-    const [name, setName] = useState(product.name);
-    const nameRef = createRef();
+    const [name, setName] = useState("");
+    // const nameRef = createRef();
     // console.log(name);
 
-    const [imgUrl, setImgUrl] = useState(product.imageUrl);
-    const imgRef = createRef();
+    const [imgUrl, setImgUrl] = useState("");
+    // const imgRef = createRef();
     // console.log(imgUrl);
 
-    const [count, setCount] = useState(product.count);
-    const countRef = createRef();
+    const [count, setCount] = useState("");
+    // const countRef = createRef();
     // console.log(count);
 
-    const [width, setWidth] = useState(product.size?.width);
-    const widthRef = createRef();
+    const [width, setWidth] = useState("");
+    // const widthRef = createRef();
     // console.log(width);
 
-    const [height, setHeight] = useState(product.size?.height);
-    const heightRef = createRef();
+    const [height, setHeight] = useState("");
+    // const heightRef = createRef();
     // console.log(height);
 
-    const [weight, setWeight] = useState(product.weight);
-    const weightRef = createRef();
-    // console.log(weight);
+    const [weight, setWeight] = useState("");
 
+    // const params = useParams();
+    // console.log(params);
 
-
-    // const [item, setItem] = useState({
-    //     // "id": product.id,
-    //     // "imageUrl": `${product.imageUrl}`,
-    //     // "name": `${product.name}`,
-    //     // "count": product.count,
-    //     // "size": {
-    //     //     "width": product.width,
-    //     //     "height": product.height
-    //     // },
-    //     // "weight": `${product.weight}`,
-    // });
 
     const onChangeItem = () => {
-        // setItem({
-        //     "id": product.id,
-        //     "imageUrl": `${imgUrl}` | `${product.imageUrl}`,
-        //     "name": `${name}` | `${product.name}`,
-        //     "count": count | product.count,
-        //     "size": {
-        //         "width": width | product.width,
-        //         "height": height | product.height
-        //     },
-        //     "weight": weight | product.weight,
-        //
-        //     // id: product.id,
-        //     // imageUrl: imgUrl | product.imageUrl,
-        //     // name: name |  product.name,
-        //     // count: count | product.count,
-        //     // size: {
-        //     //     width: width | product.width,
-        //     //     height: height | product.height
-        //     // },
-        //     // weight: weight | product.weight
-        // });
-        // console.log('item', item);
+
         const item = {
-            "id": product.id,
-            "imageUrl": `${imgUrl}`,
-            "name": `${name}`,
-            "count": `${count}`,
-            "size": {
-                "width": `${width}`,
-                "height": `${height}`
+            id: parseInt(id),
+            imageUrl: `${imgUrl}`,
+            name: `${name}`,
+            count: `${count}`,
+            size: {
+                width: `${width}`,
+                height: `${height}`
             },
-            "weight": `${weight}`,
+            weight: `${weight}`,
         }
 
         // dispatch(editProduct(item, id));
         dispatch(editProduct(item));
+        console.log("products2", products);
     }
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
 
     return (
@@ -111,7 +80,8 @@ const EditItem = () => {
                             <input
                                 style={{marginLeft: 20}}
                                 placeholder={product.name}
-                                ref={nameRef}
+                                // ref={nameRef}
+                                value = {name}
                                 onChange={(event) => setName(event.target.value)}
                             />
                         </div>
@@ -119,8 +89,9 @@ const EditItem = () => {
                             <input
                                 style={{marginLeft: 20}}
                                 placeholder={product.imageUrl}
-                                ref={imgRef}
+                                // ref={imgRef}
                                 onChange={(event) => setImgUrl(event.target.value)}
+                                value={imgUrl}
                             />
                         </div>
                         <div>Count:
@@ -128,8 +99,9 @@ const EditItem = () => {
                                 style={{marginLeft: 20}}
                                 // type={'number'}
                                 placeholder={product.count}
-                                ref={countRef}
+                                // ref={countRef}
                                 onChange={(event) => setCount(event.target.value)}
+                                value={count}
                             />
                         </div>
                         <div>Width:
@@ -137,8 +109,9 @@ const EditItem = () => {
                                 style={{marginLeft: 20}}
                                 // type={'number'}
                                 placeholder={product.size.width}
-                                ref={widthRef}
+                                // ref={widthRef}
                                 onChange={(event) => setWidth(event.target.value)}
+                                value={width}
                             />
                         </div>
                         <div>Height:
@@ -146,16 +119,18 @@ const EditItem = () => {
                                 style={{marginLeft: 20}}
                                 // type={'number'}
                                 placeholder={product.size.height}
-                                ref={heightRef}
+                                // ref={heightRef}
                                 onChange={(event) => setHeight(event.target.value)}
+                                value={height}
                             />
                         </div>
                         <div>Weight:
                             <input
                                 style={{marginLeft: 20}}
                                 placeholder={product.weight}
-                                ref={weightRef}
+                                // ref={weightRef}
                                 onChange={(event) => setWeight(event.target.value)}
+                                value={weight}
                             />
                         </div>
 
@@ -167,12 +142,15 @@ const EditItem = () => {
                             >
                                 Send
                             </button>
+                            <Link to={`/${id}`}>
                             <button
-                                onClick={() => navigate(-1)}
+                                // onClick={() => navigate(-1)}
+
                                 style={{marginLeft: 40, marginTop: 40, height: 30, width: 120, background: "lightblue"}}
                             >
                                 Cancel
                             </button>
+                            </Link>
                         </div>
 
                     </div>

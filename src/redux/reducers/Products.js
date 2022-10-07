@@ -11,7 +11,7 @@ import {
 const initialState = {
     products: [],
     product: '',
-    deletedProducts: [],
+    // deletedProducts: [],
 }
 
 export default (state = initialState, action) => {
@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 products: filtered,
-                deletedProducts: action.payload
+                // deletedProducts: action.payload
             }
         }
         case SORT_NAME_DEC: {
@@ -80,18 +80,25 @@ export default (state = initialState, action) => {
         //     }
         // }
         case EDIT_PRODUCT: {
-            // const {item} = action.payload;
-            // const item = action.payload;
-            console.log(`object` ,action.payload);
-            const filtered = state.products.filter(el => el.id !== action.payload.id);
             // const filtered = state.products.filter(el => el.id !== action.payload.id);
-       //const filtered = state.products.filter(el => el.id !== action.payload.id);
-       //      const pushed = [filtered, ...item];
-                filtered.push(action.payload);
-            console.log("filtered", filtered);
+            // return {
+            //     ...state,
+            //     products: filtered,
+            //     deletedProducts: action.payload
+            // }
+
+            console.log(`object` ,action.payload);
+            console.log("products",state.products);
+            const filtered = state.products.filter(el => el.id !== action.payload.id);
+
+
+            console.log("filter", filtered);
+            const pushed = [...filtered, action.payload];
+            console.log(pushed);
             return {
-                ...state,
-                products: filtered
+                    ...state,
+                    // products: filtered,
+                    products: pushed
             }
         }
 
