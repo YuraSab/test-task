@@ -1,4 +1,5 @@
 import {
+    ADD_PRODUCT,
     DELETE_PRODUCT, EDIT_PRODUCT,
     GET_PRODUCT_BY_ID,
     GET_PRODUCTS,
@@ -63,42 +64,31 @@ export default (state = initialState, action) => {
             }
         }
         case GET_PRODUCT_BY_ID: {
-            // let find = state.products.find(el => el.id == action.payload);
-
             return {
                 ...state,
                 product: action.payload
-                // product: find
             }
         }
-        // case DELETE_PRODUCT: {
-        //     const filtered = state.products.filter(el => el.id !== action.payload.id);
-        //     return {
-        //         ...state,
-        //         products: filtered,
-        //         deletedProducts: action.payload
-        //     }
-        // }
-        case EDIT_PRODUCT: {
-            // const filtered = state.products.filter(el => el.id !== action.payload.id);
-            // return {
-            //     ...state,
-            //     products: filtered,
-            //     deletedProducts: action.payload
-            // }
 
+        case EDIT_PRODUCT: {
             console.log(`object` ,action.payload);
             console.log("products",state.products);
             const filtered = state.products.filter(el => el.id !== action.payload.id);
-
 
             console.log("filter", filtered);
             const pushed = [...filtered, action.payload];
             console.log(pushed);
             return {
                     ...state,
-                    // products: filtered,
                     products: pushed
+            }
+        }
+        case ADD_PRODUCT: {
+            const added = [...state.products, action.payload];
+            console.log(added);
+            return {
+                ...state,
+                products: added
             }
         }
 

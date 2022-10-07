@@ -7,13 +7,12 @@ import ItemOne from "../ItemOne/ItemOne";
 
 const ItemsList = () => {
 
-    // const db = database;
 
-    // const dispatch = useDispatch();
     const {products} = useSelector(({products: {products}}) => ({products}));
 
+    // const db = database;
+    // const dispatch = useDispatch();
     // console.log(db[1]);
-
     // useEffect(() => {
     //     dispatch(getProducts())
     // }, []);

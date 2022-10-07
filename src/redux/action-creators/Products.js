@@ -48,4 +48,9 @@ export const editProduct = (item) => ({
     type: EDIT_PRODUCT,
     // payload: {item, id}
     payload: item
-})
+});
+
+export const addProduct = (item) => ({
+    type: EDIT_PRODUCT,
+    payload: item
+});

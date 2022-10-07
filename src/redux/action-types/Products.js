@@ -6,3 +6,4 @@ export const SORT_NAME_INC = "SORT_NAME_INC";
 export const SORT_PRICE_LOWER = "SORT_PRICE_LOWER";
 export const SORT_PRICE_HIGHER = "SORT_PRICE_HIGHER";
 export const EDIT_PRODUCT = "EDIT_PRODUCT";
+export const ADD_PRODUCT = "ADD_PRODUCT";
