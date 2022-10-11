@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
             }
         }
         case DELETE_COMMENT: {
-            const deleted = state.comments.filter(el => el.id !== action.payload.id);
+            const deleted = state.comments.filter(el => el.id !== action.payload);
             return {
                 ...state,
                 comments: deleted
