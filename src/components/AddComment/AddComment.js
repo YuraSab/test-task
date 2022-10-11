@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from "./AddComment.module.css";
 
-const AddComment = (setIsAdding) => {
+const AddComment = ({setIsAdding}) => {
 
     const [comment, setComment] = useState('');
 
@@ -19,8 +19,8 @@ const AddComment = (setIsAdding) => {
                         />
                 </div>
                 <div className={styles.buttons}>
-                    <div className={styles.button}>Send</div>
-                    <div className={styles.button} onClick={() => setIsAdding(false)}>Cansel</div>
+                    <button className={styles.button}>Send</button>
+                    <button className={styles.button} onClick={() => setIsAdding(false)}>Cansel</button>
                 </div>
             </div>
         </div>
