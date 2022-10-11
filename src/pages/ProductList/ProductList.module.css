@@ -1,0 +1,24 @@
+.addProduct{
+    background: #1E1E1E;
+    padding: 40px 100px;
+}
+
+
+.addButton{
+    background: #1E1E1E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+
+.addButton:hover{
+    background: grey;
+}
