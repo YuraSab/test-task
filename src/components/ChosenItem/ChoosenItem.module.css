@@ -1,5 +1,5 @@
 .main{
-    padding: 40px 75px;
+    margin: 40px 75px;
 
     /*width: 100%;*/
 
@@ -16,6 +16,7 @@
 .photo{
     grid-area: photo;
     width: 400px;
+
 }
 
 .description{
@@ -24,6 +25,7 @@
 
 
 .image{
+
 }
 
 
@@ -39,7 +41,7 @@
 
 
 .commentsDiv{
-    margin-top: 20px;
+    margin: 20px 0 40px 0;
     padding: 5px;
     border: 2px solid lightblue;
 }

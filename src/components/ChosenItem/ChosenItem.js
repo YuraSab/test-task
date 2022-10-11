@@ -1,11 +1,14 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./ChoosenItem.module.css";
 import {Link, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getProductById} from "../../redux/action-creators/Products";
 import {getCommentByProductId} from "../../redux/action-creators/Comments";
+import AddComment from "../AddComment/AddComment";
 
 const ChosenItem = () => {
+
+    const [isAdding, setIsAdding] = useState(false);
 
     const {id} = useParams();
     // console.log(id);
@@ -24,10 +27,12 @@ const ChosenItem = () => {
 
     // console.log(chosenComments)
 
+
+    console.log(isAdding);
     return (
         <div className={styles.main}>
             <div className={styles.photo}>
-                <img src={`${product.imageUrl}`} alt={product.name} className={styles.image}/>
+                <img src={`${product?.imageUrl}`} alt={product.name} className={styles.image}/>
             </div>
             <div className={styles.description}>
                 <div style={{fontSize: 30, paddingBottom: 20}}>{product.name}</div>
@@ -49,8 +54,17 @@ const ChosenItem = () => {
                         </div>)
                     }
 
-
-                    <button className={styles.addComment}>Add comment</button>
+                    <button
+                        onClick={() => setIsAdding(true)}
+                        className={styles.addComment}
+                    >
+                        Add comment
+                    </button>
+                    <div>
+                        {
+                            isAdding ? <AddComment setIsAdding={setIsAdding}/> : null
+                        }
+                    </div>
                 </div>
             </div>
         </div>

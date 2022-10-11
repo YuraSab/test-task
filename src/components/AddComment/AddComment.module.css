@@ -1,0 +1,55 @@
+.addForm{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  rgba(0,0,0,0.5) ;
+}
+
+.form{
+    width: 400px;
+    height: 400px;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+.blocking{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.inputComment{
+    width: 300px;
+    height: 250px;
+    padding: 10px;
+}
+
+.newComment{
+    font-size: 17px;
+    padding-left: 40px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button{
+    /*margin-left: 20px;*/
+    background: lightblue;
+    border: 2px solid black;
+    padding: 2px;
+    width: 75px;
+    height: 22px;
+    font-size: 17px;
+    text-align: center;
+}
