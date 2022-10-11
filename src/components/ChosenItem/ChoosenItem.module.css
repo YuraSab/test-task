@@ -54,12 +54,15 @@
 }
 
 .commentText{
+    scroll-behavior: unset;
+    padding-left: 20px;
     margin-top: 10px;
     font-size: 18px;
     background: lightblue;
 }
 
 .commentDate{
+    padding-left: 20px;
     font-size: 12px;
     border-bottom: 2px solid black;
     background: lightblue;
@@ -78,5 +81,22 @@
     font-size: 18px;
 }
 .addComment:hover{
+    box-shadow:  4px 4px 2px 1px grey;
+}
+
+
+.button{
+    /*margin-left: 20px;*/
+    background: white;
+    border: 2px solid black;
+    /*margin-left: 10px;*/
+    padding: 2px;
+    width: 50px;
+    height: 22px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.button:hover{
     box-shadow:  4px 4px 2px 1px grey;
 }

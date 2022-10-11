@@ -19,9 +19,9 @@ export const editComment = (comment) => ({
     payload: comment
 });
 
-export const deleteComment = (comment) => ({
+export const deleteComment = (id) => ({
     type: DELETE_COMMENT,
-    payload: comment
+    payload: id
 });
 
 export const getCommentByProductId = (id) => ({

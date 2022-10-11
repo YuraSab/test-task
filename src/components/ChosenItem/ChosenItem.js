@@ -3,7 +3,7 @@ import styles from "./ChoosenItem.module.css";
 import {Link, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getProductById} from "../../redux/action-creators/Products";
-import {getCommentByProductId} from "../../redux/action-creators/Comments";
+import {addComment, deleteComment, getCommentByProductId} from "../../redux/action-creators/Comments";
 import AddComment from "../AddComment/AddComment";
 
 const ChosenItem = () => {
@@ -26,9 +26,9 @@ const ChosenItem = () => {
         dispatch(getCommentByProductId(id));
     }, [comments]);
 
-    // console.log(product);
-
-    // console.log(chosenComments)
+    const onDeleteComment = (id) => {
+        dispatch(deleteComment(id));
+    }
 
 
     console.log(isAdding);
@@ -59,8 +59,19 @@ const ChosenItem = () => {
                     chosenComments.map(el => <div key={el.id}>
                         <div className={styles.commentText}>{el.description}</div>
                         <div className={styles.commentDate}>Published: {el.date}
-                            <div>Edit</div>
-                            <div>Delete</div>
+                            <div style={{display: "flex", paddingBottom: 10, paddingTop: 10, gap: 20}}>
+                                <button
+                                    className={styles.button}
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    className={styles.button}
+                                    onClick={() => onDeleteComment(el.id)}
+                                >
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     </div>)
                 }
