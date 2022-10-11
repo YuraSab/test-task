@@ -1,0 +1,30 @@
+.main{
+    background: #1E1E1E;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 20px 75px;
+}
+
+.button{
+    width: 130px;
+    height: 50px;
+    background: white;
+    color: #1E1E1E;
+    font-size: 18px;
+    margin-left: 20px;
+    border-radius: 4px;
+}
+.button:hover{
+    background: grey;
+}
+
+
+.sort{
+    background: #1E1E1E;
+    padding: 40px 75px 0 95px;
+
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+}

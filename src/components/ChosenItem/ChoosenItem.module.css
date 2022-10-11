@@ -1,0 +1,78 @@
+.main{
+    padding: 40px 75px;
+
+    /*width: 100%;*/
+
+    display: grid;
+    grid-template-areas:
+    "photo description";
+
+    grid-template-columns: 420px 1fr;
+    grid-template-rows: 1fr 200px;
+
+}
+
+
+.photo{
+    grid-area: photo;
+    width: 400px;
+}
+
+.description{
+    grid-area: description;
+}
+
+
+.image{
+}
+
+
+.editLink{
+    font-size: 22px;
+    color: black;
+    text-decoration: none;
+    padding-top: 40px;
+}
+.editLink:hover{
+    color: lightblue;
+}
+
+
+.commentsDiv{
+    margin-top: 20px;
+    padding: 5px;
+    border: 2px solid lightblue;
+}
+
+.commentsTitle{
+    font-size: 20px;
+
+}
+
+.commentText{
+    margin-top: 10px;
+    font-size: 18px;
+    background: lightblue;
+}
+
+.commentDate{
+    font-size: 12px;
+    border-bottom: 2px solid black;
+    background: lightblue;
+}
+
+.addComment{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightblue;
+    border: 2px solid black;
+    width: 150px;
+
+    height: 30px;
+    font-size: 18px;
+}
+.addComment:hover{
+    box-shadow:  4px 4px 2px 1px grey;
+}

@@ -1,0 +1,25 @@
+.main{
+    display: grid;
+
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+    grid-template-rows: 10vh 1fr 15vh;
+}
+
+header{
+    grid-area: header;
+
+}
+
+main{
+    grid-area: main;
+
+}
+
+footer{
+    grid-area: footer;
+
+}

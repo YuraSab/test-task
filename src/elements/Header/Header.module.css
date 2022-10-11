@@ -1,0 +1,16 @@
+.main{
+    background: lightblue;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.link{
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-left: 75px;
+}
