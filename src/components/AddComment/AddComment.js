@@ -24,8 +24,8 @@ const AddComment = ({setIsAdding, productId}) => {
                 date:  Date.now().toLocaleString()
             }
 
-
             dispatch(addComment(item));
+            setIsAdding(false);
         }
     }
 
