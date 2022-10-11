@@ -29,8 +29,10 @@ const AddProduct = ({onAdd, setOnAdd}) => {
             weight: `${weight}`,
         }
 
+
         dispatch(addProduct(item));
-        console.log("products2", products);
+        // console.log("products2", products);
+        setOnAdd(false);
     }
 
 
